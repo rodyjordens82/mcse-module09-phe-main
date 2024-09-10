@@ -55,7 +55,7 @@ for column in df.columns:
     output_df = pd.concat([output_df, temp_df], ignore_index=True)
 
 # Save the output to a CSV file
-output_file_path = 'C:/Users/rodyj/Documents/developer/lightphe/encrypted_results.csv'
+output_file_path = '../lightphe/encrypted_results.csv'
 output_df.to_csv(output_file_path, index=False)
 
 print(f"Results saved to {output_file_path}")
