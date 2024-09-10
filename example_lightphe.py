@@ -2,7 +2,7 @@ import pandas as pd
 from lightphe import LightPHE
 
 # Gegevens inlezen
-data_path = 'C:/Users/rodyj/Documents/developer/lightphe/Generated_Questionnaire_Responses.csv'
+data_path = '../lightphe/Generated_Questionnaire_Responses.csv'
 df = pd.read_csv(data_path)
 
 # Sleutelpaar genereren
@@ -23,12 +23,12 @@ for column in df.columns:
 
 # Geëncrypteerde gegevens opslaan in een CSV-bestand
 encrypted_df = pd.DataFrame(encrypted_columns)
-encrypted_df.to_csv('C:/Users/rodyj/Documents/developer/lightphe/encrypted_data.csv', index=False)
+encrypted_df.to_csv('../lightphe/encrypted_data.csv', index=False)
 
 import requests
 
 url = 'https://serviceprovider.com/upload_encrypted_data'
-files = {'file': open('C:/Users/rodyj/Documents/developer/lightphe/encrypted_data.csv', 'rb')}
+files = {'file': open('../lightphe/encrypted_data.csv', 'rb')}
 response = requests.post(url, files=files, verify=True)
 
 if response.status_code == 200:
@@ -69,7 +69,7 @@ else:
     print("Failed to send encrypted results.")
 
 # Resultaten inlezen
-results_df = pd.read_csv('C:/Users/rodyj/Documents/developer/lightphe/encrypted_results.csv')
+results_df = pd.read_csv('../lightphe/encrypted_results.csv')
 
 # Ontsleutelen van de gegevens
 def decrypt_data(cs, encrypted_data):
